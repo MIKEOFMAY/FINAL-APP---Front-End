@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useRef, useEffect } from "react";
 import useOutsideAlerter from "../../hooks/useOutsideAlerter";
 import "./ErrorTool.css";

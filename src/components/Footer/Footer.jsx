@@ -20,7 +20,7 @@ const Footer = () => {
           />
         </a>
         <a
-          href="" /*insert your linkedIn https*/
+          href="www.linkedin.com/in/michael-tjahyono-a40979175" 
           target="_blank"
           rel="noopener noreferrer"
         >

@@ -1,0 +1,50 @@
+.ErrorTool {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+}
+
+.ErrorTool__wrap {
+  background: white;
+  border-radius: 8px;
+  width: 370px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.ErrorTool__image {
+  margin-top: 40px;
+}
+.ErrorTool__text {
+  width: 90%;
+  text-align: center;
+  margin-top: 24px;
+  font-size: 24px;
+  font-weight: 600;
+  color: black;
+}
+.ErrorTool__progressBar {
+  height: 8px;
+  background-color: #ff6347;
+  transition: width 100ms linear;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  border-radius: 4px;
+}
+@media (max-width: 440px) {
+  .ErrorTool__wrap {
+    width: 250px;
+  }
+}

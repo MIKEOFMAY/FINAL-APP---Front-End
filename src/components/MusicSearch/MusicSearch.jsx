@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from "react";
+import React, { useState, useRef, useCallback, useEffect } from "react";
 import SpotifyPopup from "../SpotifyPopup/SpotifyPopup";
 import "./MusicSearch.css";
 import Preloader from "../Preloader/Preloader";
@@ -10,6 +10,12 @@ function MusicSearch(props) {
   const [selectedAlbumUri, setSelectedAlbumUri] = useState(null);
   const inputRef = useRef(null);
 
+  useEffect(() => {
+    if (props.searchResults.length > 0) {
+      setHasSearched(true);
+    }
+  }, [props.searchResults]);
+  
   const handleAlbumClick = (uri) => {
     setSelectedAlbumUri(uri);
     setPopupOpen(true);

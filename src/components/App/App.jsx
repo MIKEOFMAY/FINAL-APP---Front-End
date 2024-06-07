@@ -12,7 +12,10 @@ import ErrorTool from "../ErrorTool/ErrorTool";
 import { searchSpotify } from "../../utils/api";
 
 function App() {
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState(() => {
+    const localData = localStorage.getItem("musicData");
+    return localData ? JSON.parse(localData) : [];
+  });
   const [isErrorOpen, setIsErrorOpen] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [progress, setProgress] = useState(0);
@@ -42,9 +45,11 @@ function App() {
         showError(
           `We couldn't find any results for '${query}'. Please try another search.`
         );
+        localStorage.removeItem("musicData");
         setSearchResults([]);
       } else {
         setSearchResults(result.albums.items);
+        localStorage.setItem("musicData", JSON.stringify(result.albums.items));
         setIsErrorOpen(false);
       }
     } catch (error) {

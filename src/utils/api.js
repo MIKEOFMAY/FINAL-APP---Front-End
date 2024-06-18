@@ -21,29 +21,24 @@ const options = {
     }
   }
   
-  export async function searchSpotify(query) {
+  export function searchSpotify(query) {
     const url = `https://spotify23.p.rapidapi.com/search/?q=${query}&type=albums&offset=0&limit=10&numberOfTopResults=5`;
   
-    try {
-      const response = await fetch(url, options);
-  
-      if (!response.ok) {
-        let responseBody;
-        try {
-          responseBody = await response.json();
-        } catch (parseError) {
-          console.error("Error parsing the response:", parseError.message);
+    return fetch(url, options)
+      .then((response) => {
+        if (!response.ok) {
+          return response.json().then((responseBody) => {
+            const errorMsg = getErrorMessage(response.status, responseBody || {});
+            throw new Error(errorMsg);
+          });
         }
-        const errorMsg = getErrorMessage(response.status, responseBody || {});
-        throw new Error(errorMsg);
-      }
-  
-      return await response.json();
-    } catch (error) {
-      console.error(
-        "There was a problem with the fetch operation:",
-        error.message
-      );
-      throw error;
-    }
+        return response.json();
+      })
+      .catch((error) => {
+        console.error(
+          "There was a problem during search operation",
+          error.message
+        );
+        throw error;
+      });
   }

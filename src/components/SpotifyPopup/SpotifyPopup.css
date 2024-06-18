@@ -8,6 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
   }
   
   .spotifyPopup__content {
@@ -15,6 +16,7 @@
     padding: 20px;
     border-radius: 8px;
     max-width: 370px;
+    cursor: default;
   }
   .spotifyPopup__title {
     color: black;

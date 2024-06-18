@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Main.css";
 
 function Main() {
@@ -14,9 +15,12 @@ function Main() {
           Explore a universe of captivating music, from artist that only has 3 fans to timeless legends. 
           The best part? It's completely free.
         </p>
-        <button className="main-content__button-to-search">
+        <Link to="/search">
+          <button className="main-content__button-to-search">
           Spot some new music or hop back into current favorite!
-        </button>
+          </button>
+        </Link>
+
       </div>
       <div className="main-content__image-container">
         <img

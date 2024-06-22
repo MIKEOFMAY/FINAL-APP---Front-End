@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-function useOutsideAlerter(ref, onClose) {
+function useOutsideAlert(ref, onClose) {
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (ref.current && !ref.current.contains(event.target)) {
@@ -24,4 +24,4 @@ function useOutsideAlerter(ref, onClose) {
   }, [ref, onClose]);
 }
 
-export default useOutsideAlerter;
+export default useOutsideAlert;

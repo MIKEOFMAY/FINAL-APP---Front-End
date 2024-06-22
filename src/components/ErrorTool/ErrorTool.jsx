@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useRef, useEffect } from "react";
-import useOutsideAlerter from "../../hooks/useOutsideAlerter";
+import useOutsideAlert from "../../hooks/useOutsideAlert";
 import "./ErrorTool.css";
 
 function ErrorTool({ message, onClose, progress }) {
   const wrapperRef = useRef(null);
-  useOutsideAlerter(wrapperRef, onClose);
+  useOutsideAlert(wrapperRef, onClose);
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {

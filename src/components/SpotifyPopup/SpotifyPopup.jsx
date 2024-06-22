@@ -1,10 +1,10 @@
 import React, { useRef } from "react";
-import useOutsideAlerter from "../../hooks/useOutsideAlerter";
+import useOutsideAlert from "../../hooks/useOutsideAlert";
 import "./SpotifyPopup.css";
 
 function SpotifyPopup({ isOpen, onClose, onConfirm }) {
   const wrapperRef = useRef(null);
-  useOutsideAlerter(wrapperRef, onClose);
+  useOutsideAlert(wrapperRef, onClose);
 
   const handleButtonClick = (event) => {
     if (event.currentTarget.dataset.action === "confirm") {
